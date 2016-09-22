@@ -1,0 +1,24 @@
+<?php
+// スクリプト設置ディレクトリ
+define ('SCRIPT_DIR', './') ;
+
+// 書き出すディレクトリのパス
+define ('OUTPUT_DIR_NAME', SCRIPT_DIR) ;
+
+// SQLite DB ファイル名
+define ('DB_FILE', OUTPUT_DIR_NAME. 'this.db') ;
+
+define ('CAP_OUTPUT_DIR_NAME', OUTPUT_DIR_NAME . '/') ;
+
+define ('CAP_OUTPUT_URL', 'http://path.to/') ;
+
+define ('TWITTER_CONSUMER_KEY', '') ;
+define ('TWITTER_CONSUMER_SECRET', '') ;
+define ('TWITTER_OAUTH_CALLBACK', '') ;
+
+define ('TWITTER_OAUTH_ACCESS_TOKEN', '') ;
+define ('TWITTER_OAUTH_ACCESS_TOKEN_SECRET', '') ;
+
+define ('YAHOO_J_APP_ID', '') ;
+
+?>
