@@ -44,13 +44,13 @@ return $content_array [0] -> text;
 
 			$message = 'ツイート取得に失敗しました。';
 
-			if (property_exists($statuses, 'errors')) {
+			if (property_exists($content, 'errors')) {
 				// Handle error case
 
-				$message .= "\n". $statuses -> errors [0] -> message;
+				$message .= "\n". $content -> errors [0] -> message;
 			}
 
-			unset($statuses);
+			unset($content);
 			unset($connection);
 
 			return $message;
