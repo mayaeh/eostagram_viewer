@@ -66,13 +66,28 @@ function tweet_get($count) {
 
 				$tweet_array[] = array(
 					"status_id" => $status -> id, 
-					"text" => $status -> text, 
+					"text" => 
+						$status -> retweeted_status -> text, 
 					"media_url_array" => $media_url_array, 
 					"created_at" => $status -> created_at, 
-					"screen_name" => $status -> user -> screen_name, 
+					"screen_name" => 
+						$status -> user -> screen_name, 
 					"user_id" => $status -> user -> id, 
 					"user_name" => $status -> user -> name, 
-					"profile_image" => $status -> user -> profile_image_url_https
+					"profile_image" => 
+						$status -> user -> profile_image_url_https, 
+					"retweeted_status_id" => 
+					$status -> retweeted_status -> id, 
+					"retweeted_created_at" => 
+					$status -> retweeted_status -> created_at, 
+					"retweeted_screen_name" => 
+					$status -> retweeted_status -> user -> screen_name, 
+					"retweeted_user_id" => 
+					$status -> retweeted_status -> user -> id, 
+					"retweeted_user_name" => 
+					$status -> retweeted_status -> user -> name, 
+					"retweeted_profile_image" => 
+					$status -> retweeted_status -> user -> profile_image_url_https
 				);
 			}
 			else {
@@ -89,35 +104,38 @@ function tweet_get($count) {
 					"text" => $status -> text, 
 					"media_url_array" => $media_url_array, 
 					"created_at" => $status -> created_at, 
-					"screen_name" => $status -> user -> screen_name, 
+					"screen_name" => 
+						$status -> user -> screen_name, 
 					"user_id" => $status -> user -> id, 
 					"user_name" => $status -> user -> name, 
-					"profile_image" => $status -> user -> profile_image_url_https
+					"profile_image" => 
+						$status -> user -> profile_image_url_https
 				);
 			}
 
-			unset($content);
-			unset($connection);
-
-			return $tweet_array;
-
-
-		}
-		else {
-
-			$message = 'ツイート取得に失敗しました。';
-
-			if (property_exists($content, 'errors')) {
-				// Handle error case
-
-				$message .= "\n". $content -> errors [0] -> message;
-			}
-
-			unset($content);
-			unset($connection);
-
-			return $message;
 		}
 
+		unset($content);
+		unset($connection);
+
+		return $tweet_array;
+
+
+	}
+	else {
+
+		$message = 'ツイート取得に失敗しました。';
+
+		if (property_exists($content, 'errors')) {
+			// Handle error case
+
+			$message .= "\n". $content -> errors [0] -> message;
+		}
+
+		unset($content);
+		unset($connection);
+
+		return $message;
+	}
 }
 ?>
