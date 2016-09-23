@@ -53,7 +53,9 @@ function tweet_get($count) {
 
 		foreach ($content -> statuses as $status) {
 
-			if (array_get_value($status, "retweeted_status", "")) {
+			$media_url_array = array();
+
+			if (property_exists($status,"retweeted_status")) {
 
 				foreach ($status -> entities -> media as 
 					$media_array) {
