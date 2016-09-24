@@ -70,70 +70,77 @@ function tweet_get($count, $max_id, $since_id) {
 
 			$media_url_array = array();
 
+			$text =
+			$rt_status_id =
+			$rt_created_at = 
+			$rt_screen_name =
+			$rt_user_id = 
+			$rt_user_name =
+			$rt_profile_image_url = null;
+
+			// 画像を含まない tweet を除外する
 			if (property_exists($status -> entities,
 				"media")) {
 
 				if (property_exists($status,"retweeted_status")) {
 
-					foreach ($status -> entities -> media as 
-						$media_array) {
-					
-						$media_url_array[] = 
-							$media_array -> media_url_https;
-					}
+					$text = 
+						$status -> retweeted_status -> text;
 
-					unset($media_array);
+					$rt_status_id = 
+						$status -> retweeted_status -> id;
 
-					$tweet_array[] = array(
-						"status_id" => $status -> id, 
-						"text" => 
-							$status -> retweeted_status -> text, 
-						"media_url_array" => $media_url_array, 
-						"created_at" => $status -> created_at, 
-						"screen_name" => 
-							$status -> user -> screen_name, 
-						"user_id" => $status -> user -> id, 
-						"user_name" => $status -> user -> name, 
-						"profile_image_url" => 
-							$status -> user -> profile_image_url_https, 
-						"rt_status_id" => 
-						$status -> retweeted_status -> id, 
-						"rt_created_at" => 
-						$status -> retweeted_status -> created_at, 
-						"rt_screen_name" => 
-						$status -> retweeted_status -> user -> screen_name, 
-						"rt_user_id" => 
-						$status -> retweeted_status -> user -> id, 
-						"rt_user_name" => 
-						$status -> retweeted_status -> user -> name, 
-						"rt_profile_image_url" => 
-						$status -> retweeted_status -> user -> profile_image_url_https
-					);
+					$rt_created_at = 
+						$status -> retweeted_status -> created_at;
+
+					$rt_screen_name = 
+						$status -> retweeted_status -> user -> screen_name;
+
+					$rt_user_id = 
+						$status -> retweeted_status -> user -> id;
+
+					$rt_user_name = 
+						$status -> retweeted_status -> user -> name;
+
+					$rt_profile_image_url = 
+						$status -> retweeted_status -> user -> profile_image_url_https;
+
+
 				}
 				else {
 
-					foreach ($status -> entities -> media as 
-						$media_array) {
-					
-						$media_url_array[] = 
-							$media_array -> media_url_https;
-					}
-
-					unset($media_array);
-
-					$tweet_array[] = array(
-						"status_id" => $status -> id, 
-						"text" => $status -> text, 
-						"media_url_array" => $media_url_array, 
-						"created_at" => $status -> created_at, 
-						"screen_name" => 
-							$status -> user -> screen_name, 
-						"user_id" => $status -> user -> id, 
-						"user_name" => $status -> user -> name, 
-						"profile_image_url" => 
-							$status -> user -> profile_image_url_https
-					);
+					$text = $status -> text;
 				}
+
+				foreach ($status -> entities -> media as 
+					$media_array) {
+					
+					$media_url_array[] = 
+						$media_array -> media_url_https;
+				}
+
+				unset($media_array);
+
+				$tweet_array[] = array(
+					"status_id" => $status -> id, 
+					"text" => $text, 
+					"media_url_array" => $media_url_array, 
+					"created_at" => $status -> created_at, 
+					"screen_name" => 
+					$status -> user -> screen_name, 
+					"user_id" => $status -> user -> id, 
+					"user_name" => $status -> user -> name, 
+					"profile_image_url" => 
+					$status -> user -> profile_image_url_https, 
+					"rt_status_id" => $rt_status_id, 
+					"rt_created_at" => $rt_created_at, 
+					"rt_screen_name" => $rt_screen_name, 
+					"rt_user_id" => $rt_user_id, 
+					"rt_user_name" => $rt_user_name, 
+					"rt_profile_image_url" => 
+					$rt_profile_image_url
+				);
+
 			}
 		}
 
