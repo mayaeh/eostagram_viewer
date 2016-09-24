@@ -25,4 +25,6 @@ require_once ( MAYALIB_DIR . 'toDB.inc.php' ) ;
 
 require_once ( MAYALIB_DIR . 'db_latest_tweet.inc.php' ) ;
 
+require_once ( MAYALIB_DIR . 'db_oldest_tweet.inc.php' ) ;
+
 ?>
