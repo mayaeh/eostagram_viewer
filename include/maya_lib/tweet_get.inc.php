@@ -74,19 +74,19 @@ function tweet_get($count) {
 						$status -> user -> screen_name, 
 					"user_id" => $status -> user -> id, 
 					"user_name" => $status -> user -> name, 
-					"profile_image" => 
+					"profile_image_url" => 
 						$status -> user -> profile_image_url_https, 
-					"retweeted_status_id" => 
+					"rt_status_id" => 
 					$status -> retweeted_status -> id, 
-					"retweeted_created_at" => 
+					"rt_created_at" => 
 					$status -> retweeted_status -> created_at, 
-					"retweeted_screen_name" => 
+					"rt_screen_name" => 
 					$status -> retweeted_status -> user -> screen_name, 
-					"retweeted_user_id" => 
+					"rt_user_id" => 
 					$status -> retweeted_status -> user -> id, 
-					"retweeted_user_name" => 
+					"rt_user_name" => 
 					$status -> retweeted_status -> user -> name, 
-					"retweeted_profile_image" => 
+					"rt_profile_image_url" => 
 					$status -> retweeted_status -> user -> profile_image_url_https
 				);
 			}
@@ -108,7 +108,7 @@ function tweet_get($count) {
 						$status -> user -> screen_name, 
 					"user_id" => $status -> user -> id, 
 					"user_name" => $status -> user -> name, 
-					"profile_image" => 
+					"profile_image_url" => 
 						$status -> user -> profile_image_url_https
 				);
 			}
