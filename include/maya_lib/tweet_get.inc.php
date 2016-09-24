@@ -1,6 +1,6 @@
 <?php
 
-function tweet_get($count,$max_id) {
+function tweet_get($count, $max_id, $since_id) {
 
 	$connection = new Abraham\TwitterOAuth\TwitterOAuth 
 		(TWITTER_CONSUMER_KEY, 
@@ -16,7 +16,14 @@ function tweet_get($count,$max_id) {
 //	$content = $connection -> get 
 //		("statuses/user_timeline", ["count" => 1, "page" => 1]);
 
-	if (isset($max_id)) {
+	if (isset($since_id)) {
+
+		$content = $connection -> get
+			("search/tweets", ["q" => "#エオスタグラム", 
+			"count" => $count, "since_id" => $since_id, 
+			"locale" => "ja"]);
+	}
+	elseif (isset($max_id)) {
 
 		$content = $connection -> get
 			("search/tweets", ["q" => "#エオスタグラム", 
