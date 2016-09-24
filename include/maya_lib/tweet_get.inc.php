@@ -68,8 +68,6 @@ function tweet_get($count, $max_id, $since_id) {
 
 		foreach ($content -> statuses as $status) {
 
-			$media_url_array = array();
-
 			$text =
 			$rt_status_id =
 			$rt_created_at = 
@@ -112,19 +110,45 @@ function tweet_get($count, $max_id, $since_id) {
 					$text = $status -> text;
 				}
 
-				foreach ($status -> entities -> media as 
-					$media_array) {
-					
-					$media_url_array[] = 
-						$media_array -> media_url_https;
+				$media = 
+				$media_url_1 = 
+				$media_url_2 = 
+				$media_url_3 = 
+				$media_url_4 = null;
+
+				$media = $status -> entities -> media;
+
+				if (array_get_value($media, '0', "")) {
+
+					$media_url_1 = 
+						$media [0] -> media_url_https;
 				}
 
-				unset($media_array);
+				if (array_get_value($media, '1', "")) {
+
+					$media_url_2 = 
+						$media [1] -> media_url_https;
+				}
+
+				if (array_get_value($media, 	'2', "")) {
+
+					$media_url_3 = 
+						$media [2] -> media_url_https;
+				}
+
+				if (array_get_value($media, 	'3', "")) {
+
+					$media_url_4 = 
+						$media [3] -> media_url_https;
+				}
 
 				$tweet_array[] = array(
 					"status_id" => $status -> id, 
 					"text" => $text, 
-					"media_url_array" => $media_url_array, 
+					"media_url_1" => $media_url_1, 
+					"media_url_2" => $media_url_2, 
+					"media_url_3" => $media_url_3, 
+					"media_url_4" => $media_url_4, 
 					"created_at" => $status -> created_at, 
 					"screen_name" => 
 					$status -> user -> screen_name, 
