@@ -1,6 +1,6 @@
 <?php
 
-function tweet_get($count) {
+function tweet_get($count,$max_id) {
 
 	$connection = new Abraham\TwitterOAuth\TwitterOAuth 
 		(TWITTER_CONSUMER_KEY, 
@@ -16,9 +16,19 @@ function tweet_get($count) {
 //	$content = $connection -> get 
 //		("statuses/user_timeline", ["count" => 1, "page" => 1]);
 
-	$content = $connection -> get
-		("search/tweets", ["q" => "#エオスタグラム", 
-		"count" => $count, "locale" => "ja"]);
+	if (isset($max_id)) {
+
+		$content = $connection -> get
+			("search/tweets", ["q" => "#エオスタグラム", 
+			"count" => $count, "max_id" => $max_id, 
+			"locale" => "ja"]);
+	}
+	else {
+
+		$content = $connection -> get
+			("search/tweets", ["q" => "#エオスタグラム", 
+			"count" => $count, "locale" => "ja"]);
+	}
 
 	if ($connection -> getLastHttpCode() == 200) {
 	// Tweet posted successfully
