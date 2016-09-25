@@ -54,12 +54,33 @@ function api_home_timeline($count = null, $since_id = null, $max_id = null, $scr
 		$count . ";";
 
 // for debug
-return $query;
+//return $query;
 
+	$db = new SQLite3 (DB_FILE);
+
+	$db_res = $db -> query($query);
+
+	$res_array = array();
+
+	while ($row = $db_res -> 
+		fetchArray(SQLITE3_ASSOC)) {
+
+		$res_array[] = $row;
+
+	}
+
+	unset($row);
 
 // date('Y-m-d H:i:s',strtotime($created_at))
 // で綺麗に取れる
 
+	unset($db_res);
+	$db -> close();
+
+// for debug
+//return $res_array;
+
+	return json_encode($res_array, JSON_PRETTY_PRINT| JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
 }
 

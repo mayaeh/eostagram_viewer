@@ -53,7 +53,10 @@ $exclude_retweet = null;
 					$exclude_retweet
 					);
 
-				var_dump ($res);
+//				var_dump ($res);
+
+				header("Content-Type: application/json; charset=utf-8");
+				echo $res;
 
 				break;
 
