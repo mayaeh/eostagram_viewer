@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteBase /eostagram/api
+
+RewriteRule ^index\.php$ - [L]
+
+# ディレクトリ・ファイルが存在すれば書き換えない
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# 存在しないファイルのすべてのリクエストを index.php で処理
+RewriteRule ^(.*)$ index.php?u=$1 [L,QSA]
+
