@@ -27,7 +27,10 @@ for ($i = 0; $i < 10; $i++) {
 
 	if (isset($res)) {
 
-		var_dump($res);
+		if (1 != $res) {
+
+			var_dump($res);
+		}
 
 		break;
 	}
@@ -36,8 +39,8 @@ for ($i = 0; $i < 10; $i++) {
 }
 
 // for debug
-var_dump(array("latest_id" => $latest_id, 
-	"oldest_id" => $oldest_id));
+//var_dump(array("latest_id" => $latest_id, 
+//	"oldest_id" => $oldest_id));
 
 
 ?>
