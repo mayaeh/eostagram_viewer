@@ -5,12 +5,10 @@ define ('SCRIPT_DIR', './') ;
 // 書き出すディレクトリのパス
 define ('OUTPUT_DIR_NAME', SCRIPT_DIR) ;
 
+define ('SITE_URL', 'http://foo.bar/') ;
+
 // SQLite DB ファイル名
 define ('DB_FILE', OUTPUT_DIR_NAME. 'this.db') ;
-
-define ('CAP_OUTPUT_DIR_NAME', OUTPUT_DIR_NAME . '/') ;
-
-define ('CAP_OUTPUT_URL', 'http://path.to/') ;
 
 define ('TWITTER_CONSUMER_KEY', '') ;
 define ('TWITTER_CONSUMER_SECRET', '') ;
