@@ -1,5 +1,4 @@
-# eostagram_viewer
-eostagram_viewer is @nenecotte made "eostagram" collection viewer. 
+# eostagram_viewer 
+eostagram_viewer is collection viewer for eostagram made by @nenecotte.
 
-eostagram is @nenecotte made "Instagram" like image creating template.
-
+eostagram is a image-creating template like the Instagram made by @nenecotte.
