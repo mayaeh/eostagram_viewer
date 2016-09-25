@@ -1,3 +1,6 @@
 [submodule "include/abraham-twitteroauth"]
 	path = include/abraham-twitteroauth
 	url = https://github.com/abraham/twitteroauth.git
+[submodule "include/bulletphp"]
+	path = include/bulletphp
+	url = https://github.com/vlucas/bulletphp.git
