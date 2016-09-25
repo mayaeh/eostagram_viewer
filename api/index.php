@@ -10,7 +10,7 @@ $api =
 $count = 
 $since_id = 
 $max_id = 
-$trim_user =
+$screen_name =
 $exclude_retweet = null;
 
 	if(array_get_value($_GET, 'u', "")) {
@@ -36,10 +36,10 @@ $exclude_retweet = null;
 					$max_id = htmlspecialchars 
 						($_GET['max_id'], ENT_QUOTES);
 				}
-				if(array_get_value($_GET, 'trim_user', "")) {
+				if(array_get_value($_GET, 'screen_name', "")) {
 
 					$trim_user = htmlspecialchars 
-						($_GET['trim_user'], ENT_QUOTES);
+						($_GET['screen_name'], ENT_QUOTES);
 				}
 				if(array_get_value($_GET, 'exclude_retweet', "")) {
 
@@ -49,7 +49,7 @@ $exclude_retweet = null;
 
 				$res = api_home_timeline (
 					$count, $since_id, 
-					$max_id, $trim_user, 
+					$max_id, $screen_name, 
 					$exclude_retweet
 					);
 
