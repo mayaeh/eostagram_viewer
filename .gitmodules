@@ -4,3 +4,12 @@
 [submodule "include/bulletphp"]
 	path = include/bulletphp
 	url = https://github.com/vlucas/bulletphp.git
+[submodule "include/animate.css"]
+	path = include/animate.css
+	url = https://github.com/daneden/animate.css.git
+[submodule "include/jQuery-switchButton"]
+	path = include/jQuery-switchButton
+	url = https://github.com/olance/jQuery-switchButton.git
+[submodule "include/animatedModal"]
+	path = include/animatedModal
+	url = https://github.com/joaopereirawd/animatedModal.js.git
