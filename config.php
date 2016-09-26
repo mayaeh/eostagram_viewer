@@ -37,12 +37,14 @@ ini_set ( 'user_agent' , 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11
 // エラーログのパス及びファイル名
 define ( 'SCRIPT_ERR_LOGFILE' , SCRIPT_DIR . "error.log" ) ;
 
-//define ( 'HTML_INC_DIR' , SCRIPT_DIR . "include/html/" ) ;
+define ( 'HTML_INC_DIR' , SCRIPT_DIR . "include/html/" ) ;
 
 // HTML 出力用インクルードファイル
-//define ( 'HTML_HEADER_FILE' , HTML_INC_DIR . "html_header.inc.php" ) ;
-//define ( 'HTML_FOOTER_FILE' , HTML_INC_DIR . "html_footer.inc.php" ) ;
-//define ( 'HTML_TOP_MENU_FILE' , HTML_INC_DIR . "html_top_menu.inc.php" ) ;
+define ( 'HTML_HEADER_FILE' , HTML_INC_DIR . "html_header.inc.php" ) ;
+define ( 'HTML_FOOTER_FILE' , HTML_INC_DIR . "html_footer.inc.php" ) ;
+define ( 'HTML_TOP_MENU_FILE' , HTML_INC_DIR . "html_top_menu.inc.php" ) ;
+define ( 'HTML_BASE_FILE' , HTML_INC_DIR . "html_base.inc.php" ) ;
+define ( 'HTML_CONFIG_PAGE_FILE' , HTML_INC_DIR . "html_config_page.inc.php" ) ;
 
 define ( 'MAYALIB_DIR' , SCRIPT_DIR . "include/maya_lib/" ) ;
 
