@@ -1,0 +1,34 @@
+
+	
+#config p.close-configContainer {
+	padding: 0;
+	margin: 0;
+	width: 90%;
+	text-align: right;
+	font-weight: bold;
+	font-size: xx-large;
+}
+
+#config p.close-configContainer span {
+
+}
+
+div#configContainer {
+	padding-top: 20px;
+	padding-left: 20px;
+}
+
+#topMenuContainer span {
+	float: right;
+}
+
+div#config {
+
+}
+
+#config div.switch-wrapper {
+	display: inline-block;
+	position: relative;
+	top: 6px;
+	margin-left: 10px;
+}

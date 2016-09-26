@@ -1,13 +1,13 @@
 	<div id="configContainer">
 
-		<div id="itoggle">
+		<div id="config">
 
-			<form action="" id="configForm">
+			<p class="close-configContainer"><span>×</span></p>
 
-				<label for="config_exclude_retweet">リツイートを表示しない</label>
-				<input type="checkbox" id="config_exclude_retweet" checked="checked" />
-
-			</form>
+			<span>リツイートを表示しない</span>
+			<div class="switch-wrapper">
+				<input type="checkbox" id="config_exclude_retweet" name="config_exclude_retweet" checked />
+			</div>
 
 		</div>
 
