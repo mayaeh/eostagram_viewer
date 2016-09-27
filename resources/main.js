@@ -15,4 +15,23 @@ $(function(){
 		height: 20,
 		button_width: 25
 	});
+
+	$("input#config_exclude_retweet").change(function() {
+
+		var expire = new Date();
+		expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 30 );
+
+		if($(this).is(":checked")) {
+
+			document.cookie = 'exclude_retweet=yes; expires=' + expire.toUTCString();
+
+		}
+		else {
+
+			document.cookie = 'exclude_retweet=no; expires=' + expire.toUTCString();
+
+		}
+
+	});
+
 });
