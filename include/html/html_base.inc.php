@@ -117,6 +117,7 @@
 				"\t\t\t\t\t\t</div>\n" . 
 				"\t\t\t\t\t\t<p class=\"rt_user_name\">" . 
 				$json_row -> user_name . 
+				"<span>ReTweeted</span>" . 
 				"</p>\n" . 
 				"\t\t\t\t\t</div>\n";
 
