@@ -22,6 +22,11 @@ overflow: auto;
 margin: 0;
 }
 
+#topMenuContainer span {
+	margin-right: 20px;
+	margin-top: 3px;
+}
+
 div#topMenuContainer {
 background-color: #fffff1;
 margin: 0;
@@ -106,6 +111,10 @@ div#tweetContainer {
 	margin: 0;
 	padding: 5px 0 0 50px;
 	font-size: small;
+}
+
+#tweetContainer div.twContents div.tw_body div.rt_user p.rt_user_name span {
+	margin-left: 10px;
 }
 
 div#footerContainer {
