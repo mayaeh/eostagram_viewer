@@ -6,9 +6,7 @@
 
 	$tweet_body = null;
 
-	$api_url = SITE_URL . 'api/home_timeline?';
-
-	$api_url .= 'count=5';
+	$api_url = SITE_URL . 'api/home_timeline?count=5';
 
 	if(isset($_COOKIE)) {
 
@@ -42,12 +40,14 @@
 //			$tweet_body .= '<span class="tw_status_id">' . 
 //				$json_row -> status_id . "</span>\n" ;
 
-			$tweet_body .= 
-				"\t\t\t<div class=\"twContents\">\n" . 
-				"\t\t\t\t<div class=\"tw_media\">\n" . 
-				"\t\t\t\t\t<img src=\"" . 
-				$json_row -> media_url_1 . "\" />\n";
+			$media_url_1 = 
+				$json_row -> media_url_1;
 
+			$tweet_body .= <<<EOM
+			<div class="twContents">
+				<div class="tw_media">
+					<img src="$media_url_1" />
+EOM;
 
 			if (isset($json_row -> media_url_2)) {
 
@@ -67,67 +67,76 @@
 					$json_row -> media_url_4 . "\" />\n";
 			}
 
-			$tweet_body .= "\t\t\t\t</div>\n" . 
-				"\t\t\t\t<div class=\"tw_body\">\n" . 
-				"\t\t\t\t\t<div class=\"profile_image_url\">\n" . 
-				"\t\t\t\t\t\t<img src=\"";
-
 			if (isset($json_row -> rt_status_id)) {
 
-				$tweet_body .= $json_row -> rt_profile_image_url;
+				$profile_image_url = 
+					$json_row -> rt_profile_image_url;
+
+				$user_name = 
+					$json_row -> rt_user_name;
 			}
 			else {
 
-				$tweet_body .= $json_row -> profile_image_url;
+				$profile_image_url = 
+					$json_row -> profile_image_url;
+
+				$user_name = 
+					$json_row -> user_name;
 			}
 
-			$tweet_body .= "\" />\n" . 
-				"\t\t\t\t\t</div>\n" . 
-				"\t\t\t\t\t<p class=\"user_name\">";
+			$tw_text = preg_replace("/\n/u", "<br />", 
+				$json_row -> text);
 
-			if (isset($json_row -> rt_status_id)) {
+			$tw_pattern1 = "/(https?:\/\/[0-9a-zA-Z\/\-_\.]+)/u";
 
-				$tweet_body .= $json_row -> rt_user_name;
-			}
-			else {
+			$tw_replace1 = "<a href=\"$1\">$1</a>";
 
-				$tweet_body .= $json_row -> user_name;
-			}
+			$tw_text = preg_replace($tw_pattern1, 
+				$tw_replace1, $tw_text);
 
-			$tweet_body .= "</p>\n" . 
-				"\t\t\t\t\t<p class=\"tw_text\">" . 
-				preg_replace("/(https?:\/\/[0-9a-zA-Z\/\-_\.]+)/u", 
-					"<a href=\"$1\">$1</a>", 
-					preg_replace("/\n/u", "<br />", 
-						$json_row -> text)) . 
-				"</p>\n" . 
-				"\t\t\t\t\t<span class=\"created_at\">" . 
-				date('Y-m-d H:i:s',strtotime
+			$tweet_body .= <<<EOM
+				</div>
+				<div class="tw_body">
+					<div class="profile_image_url">
+						<img src="$profile_image_url" />
+					</div>
+					<p class="user_name">$user_name</p>
+					<p class="tw_text">$tw_text</p>
+					<span class="created_at">
+EOM;
+			$tweet_body .= date('Y-m-d H:i:s',strtotime
 					($json_row -> created_at)) .
 				"</span>\n";
 
 			if (isset($json_row -> rt_status_id)) {
 
-				$tweet_body .= 
-				"\t\t\t\t\t<div class=\"rt_user\">" . 
-				"\t\t\t\t\t\t<div class=\"rt_profile_image_url\">\n" .  
-				"\t\t\t\t\t\t\t\t<img src=\"" . 
-				$json_row -> profile_image_url . 
-				"\" />\n" . 
-				"\t\t\t\t\t\t</div>\n" . 
-				"\t\t\t\t\t\t<p class=\"rt_user_name\">" . 
-				$json_row -> user_name . 
-				"<span>ReTweeted</span>" . 
-				"</p>\n" . 
-				"\t\t\t\t\t</div>\n";
+				$rt_profile_image_url = 
+					$json_row -> profile_image_url;
 
+				$rt_user_name = 
+					$json_row -> user_name;
+
+				$tweet_body .= <<<EOM
+					<div class="rt_user">
+						<div class="rt_profile_image_url">
+							<img src="$rt_profile_image_url" />
+						</div>
+						<p class="rt_user_name">
+							<span>$rt_user_name</span>
+							<span>ReTweeted</span>
+						</p>
+					</div>
+
+EOM;
 
 			}
 
-			$tweet_body .= "\t\t\t\t</div>\n" . 
-				"\t\t\t</div>\n\n" ;
+			$tweet_body .= <<<EOM
+				</div>
+			</div>
 
 
+EOM;
 		}
 
 		unset($json_row);
