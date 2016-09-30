@@ -37,6 +37,14 @@
 
 		foreach ($json_array as $json_row) {
 
+			$media_url_1 = 
+			$profile_image_url = 
+			$user_name = 
+			$tw_text = 
+			$rt_profile_image_url = 
+			$rt_user_name = null;
+
+
 //			$tweet_body .= '<span class="tw_status_id">' . 
 //				$json_row -> status_id . "</span>\n" ;
 
