@@ -13,8 +13,13 @@ function tweet_get($count, $max_id, $since_id) {
 		$count = 3;
 	}
 
+// for debug
 //	$content = $connection -> get 
 //		("statuses/user_timeline", ["count" => 1, "page" => 1]);
+//$content = $connection -> get 
+//	("statuses/show", ["id" => '']);
+//return $content;
+
 
 	if (isset($since_id)) {
 
@@ -116,7 +121,7 @@ function tweet_get($count, $max_id, $since_id) {
 				$media_url_3 = 
 				$media_url_4 = null;
 
-				$media = $status -> entities -> media;
+				$media = $status -> extended_entities -> media;
 
 				if (array_get_value($media, '0', "")) {
 
