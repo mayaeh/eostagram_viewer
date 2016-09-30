@@ -116,7 +116,7 @@ function tweet_get($count, $max_id, $since_id) {
 				$media_url_3 = 
 				$media_url_4 = null;
 
-				$media = $status -> entities -> media;
+				$media = $status -> extended_entities -> media;
 
 				if (array_get_value($media, '0', "")) {
 
