@@ -13,8 +13,13 @@ function tweet_get($count, $max_id, $since_id) {
 		$count = 3;
 	}
 
+// for debug
 //	$content = $connection -> get 
 //		("statuses/user_timeline", ["count" => 1, "page" => 1]);
+//$content = $connection -> get 
+//	("statuses/show", ["id" => '']);
+//return $content;
+
 
 	if (isset($since_id)) {
 
