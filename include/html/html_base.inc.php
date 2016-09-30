@@ -102,6 +102,9 @@ EOM;
 			$tw_text = preg_replace($tw_pattern1, 
 				$tw_replace1, $tw_text);
 
+			$tw_date = date('Y-m-d H:i:s',strtotime
+					($json_row -> created_at));
+
 			$tweet_body .= <<<EOM
 				</div>
 				<div class="tw_body">
@@ -110,11 +113,9 @@ EOM;
 					</div>
 					<p class="user_name">$user_name</p>
 					<p class="tw_text">$tw_text</p>
-					<span class="created_at">
+					<span class="created_at">$tw_date</span>
+
 EOM;
-			$tweet_body .= date('Y-m-d H:i:s',strtotime
-					($json_row -> created_at)) .
-				"</span>\n";
 
 			if (isset($json_row -> rt_status_id)) {
 
