@@ -1,6 +1,9 @@
 <?php
 require_once ('config.php');
 
+// for debug
+//var_dump(tweet_get(null,null,null));
+//exit;
 
 $latest_id = 
 $oldest_id = null;
@@ -30,10 +33,15 @@ for ($i = 0; $i < 10; $i++) {
 		if (1 != $res) {
 
 			var_dump($res);
+
+			break;
 		}
 
 		break;
 	}
+
+// for debug
+//echo "tweet_get " . $i . " loop end...\n";
 
 	sleep (2);
 }
@@ -41,6 +49,7 @@ for ($i = 0; $i < 10; $i++) {
 // for debug
 //var_dump(array("latest_id" => $latest_id, 
 //	"oldest_id" => $oldest_id));
+//var_dump($res);
 
 
 ?>

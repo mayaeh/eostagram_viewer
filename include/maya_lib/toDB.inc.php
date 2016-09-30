@@ -2,6 +2,8 @@
 
 function toDB ($tweet_array) {
 
+	$return_flg = 0;
+
 	$db = new SQLite3 (DB_FILE);
 
 // for debug
@@ -84,8 +86,6 @@ function toDB ($tweet_array) {
 			")";
 
 		$stmt = $db -> prepare ($query);
-
-		$return_flg = 1;
 
 		for ($i = 0; $i < count($exists_flg_array); $i++) {
 
@@ -170,7 +170,7 @@ function toDB ($tweet_array) {
 
 				$db_res = $stmt -> execute();
 
-				$return_flg = null;
+				$return_flg++;
 
 			}
 		}
@@ -195,8 +195,13 @@ function toDB ($tweet_array) {
 // for debug
 //return $db_res;
 
+	if (isset($message)) {
 
-	return $return_flg;
+		return array($return_flg, $message);
+	}
+	else {
+		return $return_flg;
+	}
 
 }
 ?>
