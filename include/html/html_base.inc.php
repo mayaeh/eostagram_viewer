@@ -1,7 +1,5 @@
 	<div id="baseContainer">
 
-		<div id="tweetContainer">
-
 <?php
 
 	$tweet_body = null;
@@ -34,10 +32,6 @@
 		echo $tweet_body;
 	}
 
-
-
 ?>
-
-		</div>
 
 	</div>

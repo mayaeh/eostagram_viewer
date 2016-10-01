@@ -62,7 +62,10 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 
 	$res_array = array();
 
-	$tweet_body = null;
+	$tweet_body = <<<EOM
+		<div class="tweetContainer">
+
+EOM;
 
 	while ($row = $db_res -> 
 		fetchArray(SQLITE3_ASSOC)) {
@@ -75,11 +78,13 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 		$user_name = 
 		$tw_text = 
 		$rt_profile_image_url = 
-		$rt_user_name = null;
+		$rt_user_name = 
+		$last_status_id = null;
 
+		$last_status_id = $row ['status_id'];
 
 //		$tweet_body .= '<span class="tw_status_id">' . 
-//			$row -> status_id . "</span>\n" ;
+//			$row ['status_id'] . "</span>\n" ;
 
 		$media_url_1 = $row ['media_url_1'];
 
@@ -180,6 +185,37 @@ EOM;
 EOM;
 
 	}
+
+	$next_url = SITE_URL . 
+		'api/home_timeline_html?';
+
+	$url_arg_array = array();
+
+	if (isset($count)) {
+
+		$url_arg_array[] = 'count=' . $count;
+		}
+
+	if (isset($last_status_id)) {
+
+		$url_arg_array[] = 'max_id=' . $last_status_id;
+	}
+
+	if (isset($exclude_retweet)) {
+
+		$url_arg_array[] = 'exclude_retweet=yes';
+	}
+
+	$next_url .= implode('&', $url_arg_array);
+
+	$tweet_body .= <<<EOM
+
+		</div>
+
+		<div class="navigation">
+			<a href="$next_url">next</a>
+		</div>
+EOM;
 
 	unset($row);
 
