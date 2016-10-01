@@ -34,4 +34,17 @@ $(function(){
 
 	});
 
+	// quote: http://ascii.jp/elem/000/000/814/814095/
+	$('#baseContainer').infinitescroll({
+
+		navSelector: "div.navigation",
+		// ナビゲーション要素を指定します。
+		nextSelector: "div.navigation a",
+		// ナビゲーションの「次へ」の要素を指定します。
+		itemSelector: ".tweetContainer",
+		// 表示させる要素を指定します。
+		dataType: "html"
+		// 読み込むデータの形式を指定します。
+	});
+
 });

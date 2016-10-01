@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="./resources/jquery.switchButton.css" type="text/css" />
 	<script type="text/javascript" src="./resources/animatedModal.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./resources/animate.css" media="screen" />
+	<script type="text/javascript" src="./resources/jquery.infinitescroll.min.js"></script>
 	<script type="text/javascript" src="./resources/main.js"></script>
 	<link rel="icon" type="image/x-icon" href="./favicon.ico" />
 	<title></title>
