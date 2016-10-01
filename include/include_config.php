@@ -29,4 +29,6 @@ require_once ( MAYALIB_DIR . 'db_oldest_tweet.inc.php' ) ;
 
 require_once ( MAYALIB_DIR . 'api_home_timeline.inc.php' ) ;
 
+require_once ( MAYALIB_DIR . 'api_home_timeline_html.inc.php' ) ;
+
 ?>
