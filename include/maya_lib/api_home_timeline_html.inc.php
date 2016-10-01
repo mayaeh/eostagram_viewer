@@ -67,9 +67,6 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 	while ($row = $db_res -> 
 		fetchArray(SQLITE3_ASSOC)) {
 
-
-//
-
 // for debug
 //return $row;
 
@@ -182,8 +179,6 @@ EOM;
 
 EOM;
 
-
-//
 	}
 
 	unset($row);
