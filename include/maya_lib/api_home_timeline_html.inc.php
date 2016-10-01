@@ -70,6 +70,9 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 
 //
 
+// for debug
+//return $row;
+
 		$media_url_1 = 
 		$profile_image_url = 
 		$user_name = 
@@ -81,8 +84,7 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 //		$tweet_body .= '<span class="tw_status_id">' . 
 //			$row -> status_id . "</span>\n" ;
 
-		$media_url_1 = 
-			$row -> media_url_1;
+		$media_url_1 = $row ['media_url_1'];
 
 		$tweet_body .= <<<EOM
 			<div class="twContents">
@@ -90,43 +92,43 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 					<img src="$media_url_1" />
 EOM;
 
-		if (isset($row -> media_url_2)) {
+		if (array_get_value($row,'media_url_2', "")) {
 
 			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
-				$row -> media_url_2 . "\" />\n";
+				$row ['media_url_2'] . "\" />\n";
 		}
 
-		if (isset($row -> media_url_3)) {
+		if (array_get_value($row, 'media_url_3', "")) {
 
 			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
-				$row -> media_url_3 . "\" />\n";
+				$row ['media_url_3'] . "\" />\n";
 		}
 
-		if (isset($row -> media_url_4)) {
+		if (array_get_value($row, 'media_url_4', "")) {
 
 			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
-				$row -> media_url_4 . "\" />\n";
+				$row ['media_url_4'] . "\" />\n";
 		}
 
-		if (isset($row -> rt_status_id)) {
+		if (array_get_value($row, 'rt_status_id', "")) {
 
 			$profile_image_url = 
-				$row -> rt_profile_image_url;
+				$row ['rt_profile_image_url'];
 
 			$user_name = 
-				$row -> rt_user_name;
+				$row ['rt_user_name'];
 		}
 		else {
 
 			$profile_image_url = 
-				$row -> profile_image_url;
+				$row ['profile_image_url'];
 
 			$user_name = 
-				$row -> user_name;
+				$row ['user_name'];
 		}
 
 		$tw_text = preg_replace("/\n/u", "<br />", 
-			$row -> text);
+			$row ['text']);
 
 		$tw_pattern1 = "/(https?:\/\/[0-9a-zA-Z\/\-_\.]+)/u";
 
@@ -136,9 +138,10 @@ EOM;
 			$tw_replace1, $tw_text);
 
 		$tw_date = date('Y-m-d H:i:s',strtotime
-				($row -> created_at));
+				($row ['created_at']));
 
 		$tweet_body .= <<<EOM
+
 				</div>
 				<div class="tw_body">
 					<div class="profile_image_url">
@@ -150,13 +153,13 @@ EOM;
 
 EOM;
 
-		if (isset($row -> rt_status_id)) {
+		if (isset($row ['rt_status_id'])) {
 
 			$rt_profile_image_url = 
-				$row -> profile_image_url;
+				$row ['profile_image_url'];
 
 			$rt_user_name = 
-				$row -> user_name;
+				$row ['user_name'];
 
 			$tweet_body .= <<<EOM
 					<div class="rt_user">
@@ -176,7 +179,6 @@ EOM;
 		$tweet_body .= <<<EOM
 				</div>
 			</div>
-
 
 EOM;
 

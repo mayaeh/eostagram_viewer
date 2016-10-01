@@ -27,6 +27,7 @@
 // for debug
 //var_dump($res);
 //var_dump(json_decode($res));
+//var_dump($tweet_body);
 
 	if (isset($tweet_body)) {
 
