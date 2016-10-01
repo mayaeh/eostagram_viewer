@@ -1,6 +1,6 @@
 <?php
 
-function api_home_timeline($count = null, $since_id = null, $max_id = null, $screen_name = null, $exclude_retweet = null) {
+function api_home_timeline_html($count = null, $since_id = null, $max_id = null, $screen_name = null, $exclude_retweet = null) {
 
 // for debug
 //return array(
@@ -62,11 +62,126 @@ function api_home_timeline($count = null, $since_id = null, $max_id = null, $scr
 
 	$res_array = array();
 
+	$tweet_body = null;
+
 	while ($row = $db_res -> 
 		fetchArray(SQLITE3_ASSOC)) {
 
-		$res_array[] = $row;
 
+//
+
+		$media_url_1 = 
+		$profile_image_url = 
+		$user_name = 
+		$tw_text = 
+		$rt_profile_image_url = 
+		$rt_user_name = null;
+
+
+//		$tweet_body .= '<span class="tw_status_id">' . 
+//			$row -> status_id . "</span>\n" ;
+
+		$media_url_1 = 
+			$row -> media_url_1;
+
+		$tweet_body .= <<<EOM
+			<div class="twContents">
+				<div class="tw_media">
+					<img src="$media_url_1" />
+EOM;
+
+		if (isset($row -> media_url_2)) {
+
+			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
+				$row -> media_url_2 . "\" />\n";
+		}
+
+		if (isset($row -> media_url_3)) {
+
+			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
+				$row -> media_url_3 . "\" />\n";
+		}
+
+		if (isset($row -> media_url_4)) {
+
+			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
+				$row -> media_url_4 . "\" />\n";
+		}
+
+		if (isset($row -> rt_status_id)) {
+
+			$profile_image_url = 
+				$row -> rt_profile_image_url;
+
+			$user_name = 
+				$row -> rt_user_name;
+		}
+		else {
+
+			$profile_image_url = 
+				$row -> profile_image_url;
+
+			$user_name = 
+				$row -> user_name;
+		}
+
+		$tw_text = preg_replace("/\n/u", "<br />", 
+			$row -> text);
+
+		$tw_pattern1 = "/(https?:\/\/[0-9a-zA-Z\/\-_\.]+)/u";
+
+		$tw_replace1 = "<a href=\"$1\">$1</a>";
+
+		$tw_text = preg_replace($tw_pattern1, 
+			$tw_replace1, $tw_text);
+
+		$tw_date = date('Y-m-d H:i:s',strtotime
+				($row -> created_at));
+
+		$tweet_body .= <<<EOM
+				</div>
+				<div class="tw_body">
+					<div class="profile_image_url">
+						<img src="$profile_image_url" />
+					</div>
+					<p class="user_name">$user_name</p>
+					<p class="tw_text">$tw_text</p>
+					<span class="created_at">$tw_date</span>
+
+EOM;
+
+		if (isset($row -> rt_status_id)) {
+
+			$rt_profile_image_url = 
+				$row -> profile_image_url;
+
+			$rt_user_name = 
+				$row -> user_name;
+
+			$tweet_body .= <<<EOM
+					<div class="rt_user">
+						<div class="rt_profile_image_url">
+							<img src="$rt_profile_image_url" />
+						</div>
+						<p class="rt_user_name">
+							<span>$rt_user_name</span>
+							<span>ReTweeted</span>
+						</p>
+					</div>
+
+EOM;
+
+		}
+
+		$tweet_body .= <<<EOM
+				</div>
+			</div>
+
+
+EOM;
+
+
+//
 	}
 
 	unset($row);
@@ -80,7 +195,8 @@ function api_home_timeline($count = null, $since_id = null, $max_id = null, $scr
 // for debug
 //return $res_array;
 
-	return json_encode($res_array, JSON_PRETTY_PRINT| JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+	return $tweet_body;
+
 
 }
 
