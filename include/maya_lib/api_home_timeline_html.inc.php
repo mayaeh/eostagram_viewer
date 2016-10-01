@@ -120,12 +120,12 @@ EOM;
 			$profile_image_url = 
 				$row ['profile_image_url'];
 
-			$user_name = 
-				$row ['user_name'];
+			$user_name = htmlspecialchars
+				($row ['user_name'], ENT_QUOTES);
 		}
 
 		$tw_text = preg_replace("/\n/u", "<br />", 
-			$row ['text']);
+			htmlspecialchars($row ['text'], ENT_QUOTES));
 
 		$tw_pattern1 = "/(https?:\/\/[0-9a-zA-Z\/\-_\.]+)/u";
 
@@ -155,8 +155,8 @@ EOM;
 			$rt_profile_image_url = 
 				$row ['profile_image_url'];
 
-			$rt_user_name = 
-				$row ['user_name'];
+			$rt_user_name = htmlspecialchars
+				($row ['user_name'], ENT_QUOTES);
 
 			$tweet_body .= <<<EOM
 					<div class="rt_user">
