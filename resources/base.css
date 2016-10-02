@@ -42,78 +42,77 @@ overflow: auto;
 
 div#baseContainer {
 	float: left;
+	-webkit-overflow-scrolling: touch;
+	-webkit-transform: translateZ(0px);
 }
 
-
-div#tweetContainer {
+div.tweetContainer {
 /*	background-color: #fff;*/
 	left: 0;
-	margin-left: 10%;
-	float: left;
-	width: 75%;
-	overflow: auto;
-	height: 55%;
-	padding-right: 0;
-	padding-left: 0;
 	margin-top: 0;
 	margin-bottom: 0;
+	margin-left: 10%;
+	overflow: auto;
+	padding-right: 0;
+	padding-left: 0;
 	padding-top: 0;
 	border-left: 1px solid #666;
 	border-right: 1px solid #666;
+	width: 500px;
 }
 
-#tweetContainer div.tw_media img{
+.tweetContainer div.tw_media img{
 	width: 98%;
 	padding-left: 1%;
 }
 
-#tweetContainer div.tw_body {
+.tweetContainer div.tw_body {
 	background-color: #fff;
 	clear: both;
 	margin-bottom: 30px;
 	padding: 0 10px 10px;
 }
 
-#tweetContainer div.tw_body div.profile_image_url {
+.tweetContainer div.tw_body div.profile_image_url {
 	float: left;
 }
 
-#tweetContainer div.tw_body p.user_name {
+.tweetContainer div.tw_body p.user_name {
 	margin: 0;
 	padding: 15px 0 0 50px;
 }
 
-#tweetContainer div.tw_body p.tw_text {
+.tweetContainer div.tw_body p.tw_text {
 	clear: both;
 	margin-bottom: 0;
 }
 
-#tweetContainer div.tw_body span.created_at {
+.tweetContainer div.tw_body span.created_at {
 	font-size: small;
 	float: right;
 }
 
-#tweetContainer div.twContents div.tw_body div.rt_user {
+.tweetContainer div.twContents div.tw_body div.rt_user {
 	margin-top: 20px;
 	margin-left: 20px;
 }
 
-#tweetContainer div.tw_body div.rt_profile_image_url {
+.tweetContainer div.tw_body div.rt_profile_image_url {
 	float: left;
 }
 
-#tweetContainer div.twContents div.tw_body div.rt_user div.rt_profile_image_url img {
+.tweetContainer div.tw_body div.rt_profile_image_url img {
 	width: 50%;
 	height: 50%;
 }
 
-#tweetContainer div.tw_body p.rt_user_name {
+.tweetContainer div.tw_body p.rt_user_name {
 	margin: 0;
 	padding: 5px 0 0 50px;
 	font-size: small;
 }
 
-#tweetContainer div.twContents div.tw_body div.rt_user p.rt_user_name span {
+.tweetContainer div.twContents div.tw_body div.rt_user p.rt_user_name span {
 	margin-left: 10px;
 }
 
@@ -125,7 +124,6 @@ div#footerContainer {
 	border: 1px solid #666;
 	height: 15%;
 	overflow: auto;
-	float: left;
 	clear: both;
 	padding: 0;
 	margin: 0;
@@ -134,6 +132,9 @@ div#footerContainer {
 div#upperContainer {
 	text-align: right;
 	margin-right: 20px;
+	position: absolute;
+	bottom: 200px;
+	right: 10px;
 }
 
 #footerContainer ul {

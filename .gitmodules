@@ -13,3 +13,6 @@
 [submodule "include/animatedModal"]
 	path = include/animatedModal
 	url = https://github.com/joaopereirawd/animatedModal.js.git
+[submodule "include/jscroll"]
+	path = include/jscroll
+	url = https://github.com/pklauzinski/jscroll.git
