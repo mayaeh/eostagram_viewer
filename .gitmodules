@@ -13,9 +13,6 @@
 [submodule "include/animatedModal"]
 	path = include/animatedModal
 	url = https://github.com/joaopereirawd/animatedModal.js.git
-[submodule "include/infinite-scroll"]
-	path = include/infinite-scroll
-	url = https://github.com/infinite-scroll/infinite-scroll.git
 [submodule "include/jscroll"]
 	path = include/jscroll
 	url = https://github.com/pklauzinski/jscroll.git
