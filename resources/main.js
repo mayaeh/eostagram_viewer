@@ -39,12 +39,13 @@ $(function(){
 
 		navSelector: "div.navigation",
 		// ナビゲーション要素を指定します。
-		nextSelector: "div.navigation a",
+		nextSelector: "div.navigation a:first",
 		// ナビゲーションの「次へ」の要素を指定します。
 		itemSelector: ".tweetContainer",
 		// 表示させる要素を指定します。
-		dataType: "html"
+		dataType: "html",
 		// 読み込むデータの形式を指定します。
+		debug: true
 	});
 
 });
