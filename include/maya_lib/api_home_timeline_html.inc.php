@@ -62,7 +62,12 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 
 	$res_array = array();
 
-	$tweet_body = null;
+	$tweet_body = <<<EOM
+		<div id="contentContainer">
+
+			<div class="tweetContainer">
+
+EOM;
 
 	while ($row = $db_res -> 
 		fetchArray(SQLITE3_ASSOC)) {
@@ -75,35 +80,37 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 		$user_name = 
 		$tw_text = 
 		$rt_profile_image_url = 
-		$rt_user_name = null;
+		$rt_user_name = 
+		$last_status_id = null;
 
+		$last_status_id = $row ['status_id'];
 
 //		$tweet_body .= '<span class="tw_status_id">' . 
-//			$row -> status_id . "</span>\n" ;
+//			$row ['status_id'] . "</span>\n" ;
 
 		$media_url_1 = $row ['media_url_1'];
 
 		$tweet_body .= <<<EOM
-			<div class="twContents">
-				<div class="tw_media">
-					<img src="$media_url_1" />
+				<div class="twContents">
+					<div class="tw_media">
+						<img src="$media_url_1" />
 EOM;
 
 		if (array_get_value($row,'media_url_2', "")) {
 
-			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
+			$tweet_body .= "\t\t\t\t\t\t<img src=\"" . 
 				$row ['media_url_2'] . "\" />\n";
 		}
 
 		if (array_get_value($row, 'media_url_3', "")) {
 
-			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
+			$tweet_body .= "\t\t\t\t\t\t<img src=\"" . 
 				$row ['media_url_3'] . "\" />\n";
 		}
 
 		if (array_get_value($row, 'media_url_4', "")) {
 
-			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
+			$tweet_body .= "\t\t\t\t\t\t<img src=\"" . 
 				$row ['media_url_4'] . "\" />\n";
 		}
 
@@ -139,14 +146,14 @@ EOM;
 
 		$tweet_body .= <<<EOM
 
-				</div>
-				<div class="tw_body">
-					<div class="profile_image_url">
-						<img src="$profile_image_url" />
 					</div>
-					<p class="user_name">$user_name</p>
-					<p class="tw_text">$tw_text</p>
-					<span class="created_at">$tw_date</span>
+					<div class="tw_body">
+						<div class="profile_image_url">
+							<img src="$profile_image_url" />
+						</div>
+						<p class="user_name">$user_name</p>
+						<p class="tw_text">$tw_text</p>
+						<span class="created_at">$tw_date</span>
 
 EOM;
 
@@ -159,27 +166,61 @@ EOM;
 				($row ['user_name'], ENT_QUOTES);
 
 			$tweet_body .= <<<EOM
-					<div class="rt_user">
-						<div class="rt_profile_image_url">
-							<img src="$rt_profile_image_url" />
+						<div class="rt_user">
+							<div class="rt_profile_image_url">
+								<img src="$rt_profile_image_url" />
+							</div>
+							<p class="rt_user_name">
+								<span>$rt_user_name</span>
+								<span>ReTweeted</span>
+							</p>
 						</div>
-						<p class="rt_user_name">
-							<span>$rt_user_name</span>
-							<span>ReTweeted</span>
-						</p>
-					</div>
 
 EOM;
 
 		}
 
 		$tweet_body .= <<<EOM
+					</div>
 				</div>
-			</div>
 
 EOM;
 
 	}
+
+	$next_url = SITE_URL . 
+		'api/home_timeline_html?';
+
+	$url_arg_array = array();
+
+	if (isset($count)) {
+
+		$url_arg_array[] = 'count=' . $count;
+		}
+
+	if (isset($last_status_id)) {
+
+		$url_arg_array[] = 'max_id=' . $last_status_id;
+	}
+
+	if (isset($exclude_retweet)) {
+
+		$url_arg_array[] = 'exclude_retweet=yes';
+	}
+
+	$next_url .= implode('&', $url_arg_array);
+
+	$tweet_body .= <<<EOM
+
+			</div>
+
+			<div class="navigation">
+				<a href="$next_url">next</a>
+			</div>
+
+		</div>
+
+EOM;
 
 	unset($row);
 
