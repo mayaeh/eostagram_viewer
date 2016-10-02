@@ -42,23 +42,23 @@ overflow: auto;
 
 div#baseContainer {
 	float: left;
+	-webkit-overflow-scrolling: touch
+	-webkit-transform: translateZ(0px);
 }
-
 
 div.tweetContainer {
 /*	background-color: #fff;*/
 	left: 0;
-	margin-left: 10%;
-	width: 75%;
-	overflow: auto;
-	height: 55%;
-	padding-right: 0;
-	padding-left: 0;
 	margin-top: 0;
 	margin-bottom: 0;
+	margin-left: 10%;
+	overflow: auto;
+	padding-right: 0;
+	padding-left: 0;
 	padding-top: 0;
 	border-left: 1px solid #666;
 	border-right: 1px solid #666;
+	width: 500px;
 }
 
 .tweetContainer div.tw_media img{
@@ -124,7 +124,6 @@ div#footerContainer {
 	border: 1px solid #666;
 	height: 15%;
 	overflow: auto;
-	float: left;
 	clear: both;
 	padding: 0;
 	margin: 0;
@@ -133,6 +132,9 @@ div#footerContainer {
 div#upperContainer {
 	text-align: right;
 	margin-right: 20px;
+	position: absolute;
+	bottom: 200px;
+	right: 10px;
 }
 
 #footerContainer ul {
