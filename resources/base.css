@@ -8,18 +8,16 @@ html {
 body {
 	height: 100%;
 	width: 100%;
+	margin: 0;
 }
 
 
 
 div#headerContainer {
-background-color: #fffff1;
-/*border: 1px solid #666;*/
-border-top: 1px solid #666;
-border-bottom: 1px solid #666;
-height: 5%;
-overflow: auto;
-margin: 0;
+	background-color: #fffff1;
+	overflow: auto;
+	margin: 0 0 10px;
+	padding-left: 10px;
 }
 
 #topMenuContainer span {
@@ -27,13 +25,28 @@ margin: 0;
 	margin-top: 3px;
 }
 
+#headerContainer div.description p {
+	margin: 0;
+	font-size: small;
+}
+
+#headerContainer div.description {
+	margin-left: 30px;
+}
+
+#headerContainer h1 {
+	margin: 0;
+}
+
 div#topMenuContainer {
 background-color: #fffff1;
 margin: 0;
 	padding-top: 0;
-padding-bottom: 0;
-left: 0;
-overflow: auto;
+	padding-bottom: 0;
+	overflow: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 #topMenuContainer span {
@@ -41,7 +54,6 @@ overflow: auto;
 }
 
 div#baseContainer {
-	float: left;
 	-webkit-overflow-scrolling: touch;
 	-webkit-transform: translateZ(0px);
 }
@@ -62,8 +74,7 @@ div.tweetContainer {
 }
 
 .tweetContainer div.tw_media img{
-	width: 98%;
-	padding-left: 1%;
+	width: 100%;
 }
 
 .tweetContainer div.tw_body {
@@ -112,10 +123,6 @@ div.tweetContainer {
 	font-size: small;
 }
 
-.tweetContainer div.twContents div.tw_body div.rt_user p.rt_user_name span {
-	margin-left: 10px;
-}
-
 div#footerContainer {
 /*	background-color: #feffda;*/
 	bottom: 0;
@@ -132,9 +139,10 @@ div#footerContainer {
 div#upperContainer {
 	text-align: right;
 	margin-right: 20px;
-	position: absolute;
+	position: fixed;
 	bottom: 200px;
 	right: 10px;
+	overflow: visible;
 }
 
 #footerContainer ul {

@@ -30,3 +30,12 @@
 
 	<div id="headerContainer">
 
+		<h1>Eostagram-Viewer</h1>
+
+		<div class="description">
+
+			<p>Twitter のハッシュタグ #エオスタグラム をまとめて見られるビューワーです。<br />
+				<a href="https://twitter.com/nenecotte">@nenecotte</a> さんの配布しているテンプレートを用い各ユーザーさんが作られたツイートを表示しています。<br />
+				サイト制作&nbsp;:&nbsp;<a href="https://twitter.com/mayaeh">@mayaeh</a></p>
+
+		</div>
