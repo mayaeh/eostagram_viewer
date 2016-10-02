@@ -35,7 +35,7 @@ $(function(){
 	});
 
 	// quote: http://ascii.jp/elem/000/000/814/814095/
-	$('#baseContainer').infinitescroll({
+	$('#contentContainer').infinitescroll({
 
 		navSelector: "div.navigation",
 		// ナビゲーション要素を指定します。

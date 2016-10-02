@@ -63,7 +63,9 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 	$res_array = array();
 
 	$tweet_body = <<<EOM
-		<div class="tweetContainer">
+		<div id="contentContainer">
+
+			<div class="tweetContainer">
 
 EOM;
 
@@ -89,26 +91,26 @@ EOM;
 		$media_url_1 = $row ['media_url_1'];
 
 		$tweet_body .= <<<EOM
-			<div class="twContents">
-				<div class="tw_media">
-					<img src="$media_url_1" />
+				<div class="twContents">
+					<div class="tw_media">
+						<img src="$media_url_1" />
 EOM;
 
 		if (array_get_value($row,'media_url_2', "")) {
 
-			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
+			$tweet_body .= "\t\t\t\t\t\t<img src=\"" . 
 				$row ['media_url_2'] . "\" />\n";
 		}
 
 		if (array_get_value($row, 'media_url_3', "")) {
 
-			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
+			$tweet_body .= "\t\t\t\t\t\t<img src=\"" . 
 				$row ['media_url_3'] . "\" />\n";
 		}
 
 		if (array_get_value($row, 'media_url_4', "")) {
 
-			$tweet_body .= "\t\t\t\t\t<img src=\"" . 
+			$tweet_body .= "\t\t\t\t\t\t<img src=\"" . 
 				$row ['media_url_4'] . "\" />\n";
 		}
 
@@ -144,14 +146,14 @@ EOM;
 
 		$tweet_body .= <<<EOM
 
-				</div>
-				<div class="tw_body">
-					<div class="profile_image_url">
-						<img src="$profile_image_url" />
 					</div>
-					<p class="user_name">$user_name</p>
-					<p class="tw_text">$tw_text</p>
-					<span class="created_at">$tw_date</span>
+					<div class="tw_body">
+						<div class="profile_image_url">
+							<img src="$profile_image_url" />
+						</div>
+						<p class="user_name">$user_name</p>
+						<p class="tw_text">$tw_text</p>
+						<span class="created_at">$tw_date</span>
 
 EOM;
 
@@ -164,23 +166,23 @@ EOM;
 				($row ['user_name'], ENT_QUOTES);
 
 			$tweet_body .= <<<EOM
-					<div class="rt_user">
-						<div class="rt_profile_image_url">
-							<img src="$rt_profile_image_url" />
+						<div class="rt_user">
+							<div class="rt_profile_image_url">
+								<img src="$rt_profile_image_url" />
+							</div>
+							<p class="rt_user_name">
+								<span>$rt_user_name</span>
+								<span>ReTweeted</span>
+							</p>
 						</div>
-						<p class="rt_user_name">
-							<span>$rt_user_name</span>
-							<span>ReTweeted</span>
-						</p>
-					</div>
 
 EOM;
 
 		}
 
 		$tweet_body .= <<<EOM
+					</div>
 				</div>
-			</div>
 
 EOM;
 
@@ -210,11 +212,14 @@ EOM;
 
 	$tweet_body .= <<<EOM
 
+			</div>
+
+			<div class="navigation">
+				<a href="$next_url">next</a>
+			</div>
+
 		</div>
 
-		<div class="navigation">
-			<a href="$next_url">next</a>
-		</div>
 EOM;
 
 	unset($row);
