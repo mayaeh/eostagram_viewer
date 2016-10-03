@@ -28,6 +28,6 @@
 			<p>Twitter&nbsp;のハッシュタグ&nbsp;#エオスタグラム&nbsp;をまとめて見られるビューワーです。<br />
 				<a href="https://twitter.com/nenecotte">@nenecotte</a> さんの配布しているテンプレートを用い各ユーザーさんが作られたツイートを表示しています。<br />
 				サイト制作&nbsp;:&nbsp;<a href="https://twitter.com/mayaeh">@mayaeh</a><br />
-				デザイン協力&nbsp;:&nbsp:@nenecotte</p>
+				デザイン協力&nbsp;:&nbsp;@nenecotte</p>
 
 		</div>
