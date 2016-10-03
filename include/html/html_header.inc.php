@@ -5,6 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" media="all" href="./resources/base.css" type="text/css" />
+	<link rel="stylesheet" media="all" href="./resources/add.css" type="text/css" />
 <!--	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 	<script type="text/javascript" src="./resources/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="./resources/jquery-ui-1.12.1/jquery-ui.min.js"></script>

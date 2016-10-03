@@ -29,11 +29,10 @@ a:hover {
 	}
 
 div#headerContainer {
-	margin: 0 auto 36px;
-	padding: 12px 0;
+	margin: 0px auto 36px;
+	padding: 10% 0 0;
 	width: 100%;
 	text-align: center;
-/*	border-bottom: 2px dashed #fefefe;*/
 }
 
 div.description p {
@@ -41,74 +40,54 @@ div.description p {
 	text-align: left;
 	display: inline-block;
 	padding: 0 10px;
+	text-align: justify;
 }
 
 div.description {
 	margin: 30px auto;
-	width: 98%;
+	width: 96%;
 	text-align: center;
-	border-style: solid;
-	border-width: 9px 0px;
-	-moz-border-image: url('img/line.png') 9 0 stretch;
-	-webkit-border-image: url('img/line.png') 9 0 stretch;
-	-o-border-image: url('img/line.png') 9 0 stretch;
-	border-image: url('img/line.png') 9 0 fill stretch;
+	border-top: 1px dashed #d1c0a6;
+	border-bottom: 1px dashed #d1c0a6;
 }
 
 #headerContainer h1 {
-width: 96%;
-margin: 20px auto 0;
-color: #665a47;
+	width: 97%;
+	margin: 10px auto 0;
+	color: #665a47;
+	font-size: 1.6em;
 }
 
 
 #headerContainer h1 img{
-max-width: 100%;
-}
-
-#headerContainer h1 span{
-	display: none;
-}
-
-div#topMenuContainer {
-position: absolute;
-top: 5px;
-right: 5px;
-width: 57px;
-height: 57px;
-}
-
-
-#topMenuContainer img{
 	max-width: 100%;
 }
 
-#topMenuContainer span{
-	display: none;
+div#topMenuContainer {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	width: 45px;
+	height: 45px;
+}
+
+#topMenuContainer img{
+	max-width: 100%;
 }
 
 div#baseContainer {
 	-webkit-overflow-scrolling: touch;
 	-webkit-transform: translateZ(0px);
 	background: #ede4d7;
+	width: 96%;
+	margin: 0 auto;
 }
 
 div.tweetContainer {
-margin: 0 auto;
-width: 100%;
+	margin: 0 auto;
+	width: 100%;
 }
 
-
-.tw_media {
-    padding: 0;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.twContents {
-    width: 93%;
-    margin: 0 auto;
-}
 .tweetContainer div.tw_media img{
 	max-width: 100%;
 }
@@ -127,7 +106,7 @@ width: 100%;
 
 /*profile画像を角丸に*/
 .profile_image_url img {
-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .tweetContainer div.tw_body p.user_name {
@@ -172,52 +151,47 @@ div#footerContainer {
 	bottom: 0;
 	left: 0;
 	width: 96%;
-	border: 1px solid #666;
-	height: 15%;
+	border-top: 1px solid #fff;
+	height: auto;
 	overflow: auto;
 	clear: both;
 	padding: 0;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 
 div#upperContainer {
 	text-align: right;
 	margin: 0;
 	position: fixed;
-	bottom: 200px;
+	text-decoration: none;
+	bottom: 10px;
+	color: #fff;
 	right: 10px;
-	overflow: visible;
-	background-color: #666;
-	padding: 9px 13px;
+	background-color: #ccc;
+	padding: 6px 10px;
 	border-radius: 21px;
 	filter: alpha(opacity=50);
 	-moz-opacity: 0.5;
 	opacity: 0.5;
 }
 
-#upperContainer a {
-	color: #e7e7e9;
-}
-
-#upperContainer a:hover {
-	color: #ede4d7;
-}
-
-#upperContainer a:visited {
-	color: #e7e7e9;
+div#upperContainer .arrow {
+	color: #fff;
+	text-decoration: none;
 }
 
 #footerContainer ul {
 	display: block;
 	width: 90%;
 	margin: 0 auto;
-	padding: 0;
+	padding: 10px 0;
+	font-size: 0.8em;
 }
 
 #footerContainer ul li {
 	display: compact;
+	list-style: none;
 }
-
 
 #config p.close-configContainer {
 	padding: 0;
@@ -228,15 +202,10 @@ div#upperContainer {
 	font-size: xx-large;
 }
 
-
-
 div#configContainer {
 	padding-top: 20px;
 	padding-left: 20px;
 }
-
-
-
 
 #config div.switch-wrapper {
 	display: inline-block;
@@ -245,18 +214,16 @@ div#configContainer {
 	margin-left: 10px;
 }
 
-/* iPhone など 横幅が 480px 以下の時 */
-@media screen and (max-device-width: 480px) {
-	#headerContainer h1 {
-		margin: 50px auto 0;
-	}
-}
-
-
-/*横幅が768px以上の時*/
+/*横幅が768px以上（PC）の時*/
 @media screen and (min-width: 768px) {
+		div#headerContainer {
+		margin: 0px auto 36px;
+		padding: 2% 0 0;
+		width: 100%;
+		text-align: center;
+	}
     .twContents {
     width: 540px;
     margin: 0 auto;
-}
+	}
 }
