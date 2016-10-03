@@ -1,6 +1,6 @@
 		<div id="topMenuContainer">
 
-			<span><a id="configOpen" href="#configContainer">Config</a></span>
+			<a id="configOpen" href="#configContainer"><img src="./resources/img/icon-conf.png" /><span>Config</span></a>
 
 		</div>
 	</div> <!-- headerContainer end -->

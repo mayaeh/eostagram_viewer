@@ -1,101 +1,146 @@
+@charset "UTF-8"; 
 
 html {
-	background-color: #fffff1;
 	width: 100%;
 	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
+	padding: 0;
+	color: #333;
+	background: #ede4d7;
 }
 
+a,
+a:visited {
+    color: #4285F4;
+}
 
+a:hover {
+	color: #4285F4;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+	}
 
 div#headerContainer {
-	background-color: #fffff1;
-	overflow: auto;
-	margin: 0 0 10px;
-	padding-left: 10px;
+	margin: 0 auto 36px;
+	padding: 12px 0;
+	width: 100%;
+	text-align: center;
+/*	border-bottom: 2px dashed #fefefe;*/
 }
 
-#topMenuContainer span {
-	margin-right: 20px;
-	margin-top: 3px;
-}
-
-#headerContainer div.description p {
-	margin: 0;
+div.description p {
 	font-size: small;
+	text-align: left;
+	display: inline-block;
+	padding: 0 10px;
 }
 
-#headerContainer div.description {
-	margin-left: 30px;
+div.description {
+	margin: 30px auto;
+	width: 98%;
+	text-align: center;
+	border-style: solid;
+	border-width: 9px 0px;
+	-moz-border-image: url('img/line.png') 9 0 stretch;
+	-webkit-border-image: url('img/line.png') 9 0 stretch;
+	-o-border-image: url('img/line.png') 9 0 stretch;
+	border-image: url('img/line.png') 9 0 fill stretch;
 }
 
 #headerContainer h1 {
-	margin: 0;
+width: 96%;
+margin: 20px auto 0;
+color: #665a47;
+}
+
+
+#headerContainer h1 img{
+max-width: 100%;
+}
+
+#headerContainer h1 span{
+	display: none;
 }
 
 div#topMenuContainer {
-background-color: #fffff1;
-margin: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	overflow: auto;
-	position: absolute;
-	top: 0;
-	right: 0;
+position: absolute;
+top: 5px;
+right: 5px;
+width: 57px;
+height: 57px;
 }
 
-#topMenuContainer span {
-	float: right;
+
+#topMenuContainer img{
+	max-width: 100%;
+}
+
+#topMenuContainer span{
+	display: none;
 }
 
 div#baseContainer {
 	-webkit-overflow-scrolling: touch;
 	-webkit-transform: translateZ(0px);
+	background: #ede4d7;
 }
 
 div.tweetContainer {
-/*	background-color: #fff;*/
-	left: 0;
-	margin-top: 0;
-	margin-bottom: 0;
-	margin-left: 10%;
-	overflow: auto;
-	padding-right: 0;
-	padding-left: 0;
-	padding-top: 0;
-	border-left: 1px solid #666;
-	border-right: 1px solid #666;
-	width: 500px;
+margin: 0 auto;
+width: 100%;
 }
 
+
+.tw_media {
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.twContents {
+    width: 93%;
+    margin: 0 auto;
+}
 .tweetContainer div.tw_media img{
-	width: 100%;
+	max-width: 100%;
 }
 
 .tweetContainer div.tw_body {
 	background-color: #fff;
 	clear: both;
-	margin-bottom: 30px;
-	padding: 0 10px 10px;
+	margin-bottom: 42px;
+	padding: 10px 10px 25px;
+	border: 1px solid #E1E8ED;
 }
 
 .tweetContainer div.tw_body div.profile_image_url {
 	float: left;
 }
 
+/*profile画像を角丸に*/
+.profile_image_url img {
+border-radius: 5px;
+}
+
 .tweetContainer div.tw_body p.user_name {
 	margin: 0;
-	padding: 15px 0 0 50px;
+	padding: 15px 0 0 54px;
+	font-weight: bold;
+	color: #222;
 }
 
 .tweetContainer div.tw_body p.tw_text {
 	clear: both;
 	margin-bottom: 0;
+	font-size: 93%;
 }
 
 .tweetContainer div.tw_body span.created_at {
@@ -124,29 +169,49 @@ div.tweetContainer {
 }
 
 div#footerContainer {
-/*	background-color: #feffda;*/
 	bottom: 0;
 	left: 0;
-	width: 100%;
+	width: 96%;
 	border: 1px solid #666;
 	height: 15%;
 	overflow: auto;
 	clear: both;
 	padding: 0;
-	margin: 0;
+	margin: 0 auto;
 }
 
 div#upperContainer {
 	text-align: right;
-	margin-right: 20px;
+	margin: 0;
 	position: fixed;
 	bottom: 200px;
 	right: 10px;
 	overflow: visible;
+	background-color: #666;
+	padding: 9px 13px;
+	border-radius: 21px;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+
+#upperContainer a {
+	color: #e7e7e9;
+}
+
+#upperContainer a:hover {
+	color: #ede4d7;
+}
+
+#upperContainer a:visited {
+	color: #e7e7e9;
 }
 
 #footerContainer ul {
-	display: inline-block;
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	padding: 0;
 }
 
 #footerContainer ul li {
@@ -163,9 +228,7 @@ div#upperContainer {
 	font-size: xx-large;
 }
 
-#config p.close-configContainer span {
 
-}
 
 div#configContainer {
 	padding-top: 20px;
@@ -173,13 +236,22 @@ div#configContainer {
 }
 
 
-div#config {
 
-}
 
 #config div.switch-wrapper {
 	display: inline-block;
 	position: relative;
 	top: 6px;
 	margin-left: 10px;
+}
+
+
+
+
+/*横幅が768px以上の時*/
+@media screen and (min-width: 768px) {
+    .twContents {
+    width: 540px;
+    margin: 0 auto;
+}
 }
