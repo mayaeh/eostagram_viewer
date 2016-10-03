@@ -7,13 +7,13 @@
 
 	<link rel="stylesheet" media="all" href="./resources/base.css" type="text/css" />
 
-	<link rel="stylesheet" media="screen and (max-device-width: 480px)" href="./resources/iphone.css" type="text/css" />
+<!--	<link rel="stylesheet" media="screen and (max-device-width: 480px)" href="./resources/iphone.css" type="text/css" />-->
 
-	<link rel="stylesheet" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" href="./resources/ipad-portrait.css" type="text/css" />
+<!--	<link rel="stylesheet" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" href="./resources/ipad-portrait.css" type="text/css" />-->
 
-	<link rel="stylesheet" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" href="./resources/ipad-landscape.css" type="text/css" />
+<!--	<link rel="stylesheet" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" href="./resources/ipad-landscape.css" type="text/css" />-->
 
-	<link rel="stylesheet" media="screen and (min-device-width: 1025px)" href="./resources/pc.css" type="text/css" />
+<!--	<link rel="stylesheet" media="screen and (min-device-width: 1025px)" href="./resources/pc.css" type="text/css" />-->
 <!--	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 	<script type="text/javascript" src="./resources/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="./resources/jquery-ui-1.12.1/jquery-ui.min.js"></script>
@@ -30,11 +30,11 @@
 
 	<div id="headerContainer">
 
-		<h1>Eostagram-Viewer</h1>
+		<h1><img src="./resources/img/EostagramViewer.png" /><span>Eostagram-Viewer</span></h1>
 
 		<div class="description">
 
-			<p>Twitter のハッシュタグ #エオスタグラム をまとめて見られるビューワーです。<br />
+			<p>Twitter&nbsp;のハッシュタグ&nbsp;#エオスタグラム&nbsp;をまとめて見られるビューワーです。<br />
 				<a href="https://twitter.com/nenecotte">@nenecotte</a> さんの配布しているテンプレートを用い各ユーザーさんが作られたツイートを表示しています。<br />
 				サイト制作&nbsp;:&nbsp;<a href="https://twitter.com/mayaeh">@mayaeh</a></p>
 
