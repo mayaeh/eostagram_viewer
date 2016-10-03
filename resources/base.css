@@ -245,7 +245,12 @@ div#configContainer {
 	margin-left: 10px;
 }
 
-
+/* iPhone など 横幅が 480px 以下の時 */
+@media screen and (max-device-width: 480px) {
+	#headerContainer h1 {
+		margin: 50px auto 0;
+	}
+}
 
 
 /*横幅が768px以上の時*/
