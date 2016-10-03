@@ -63,6 +63,10 @@ div.description {
 	max-width: 100%;
 }
 
+#headerContainer h1 span{
+	display: none;
+}
+
 div#topMenuContainer {
 	position: absolute;
 	top: 0px;
@@ -73,6 +77,10 @@ div#topMenuContainer {
 
 #topMenuContainer img{
 	max-width: 100%;
+}
+
+#topMenuContainer span{
+	display: none;
 }
 
 div#baseContainer {
