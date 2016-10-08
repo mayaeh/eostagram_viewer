@@ -6,6 +6,7 @@ $(function(){
 		animatedOut:'fadeOut', //閉じる時のアニメーション
 		animationDuration:'1s', //アニメーションにかける秒数
 		color:'rgb(230, 230, 230)', //背景色
+		overflow:'hidden'
 	});
 
 	$("input#config_exclude_retweet").switchButton({
