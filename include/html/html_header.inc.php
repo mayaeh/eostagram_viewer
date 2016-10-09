@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="./resources/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="./resources/jquery.switchButton.js"></script>
 	<link rel="stylesheet" href="./resources/jquery.switchButton.css" type="text/css" />
-	<script type="text/javascript" src="./resources/animatedModal.min.js"></script>
+	<script type="text/javascript" src="./resources/animatedModal.js"></script>
 	<link rel="stylesheet" type="text/css" href="./resources/animate.css" media="screen" />
 	<script type="text/javascript" src="./resources/jquery.jscroll.min.js"></script>
 	<script type="text/javascript" src="./resources/main.js"></script>
