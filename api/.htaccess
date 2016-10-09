@@ -1,6 +1,6 @@
 RewriteEngine On
 
-RewriteBase /eostagram/api
+RewriteBase /api
 
 RewriteRule ^index\.php$ - [L]
 

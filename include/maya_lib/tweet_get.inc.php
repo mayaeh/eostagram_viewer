@@ -81,6 +81,12 @@ function tweet_get($count, $max_id, $since_id) {
 			$rt_user_name =
 			$rt_profile_image_url = null;
 
+			// 非公開アカウントの tweet はスキップする
+			if($status -> user -> protected == 'true') {
+
+				continue;
+			}
+
 			// 画像を含まない tweet を除外する
 			if (property_exists($status -> entities,
 				"media")) {
