@@ -14,12 +14,13 @@
 	<link rel="stylesheet" type="text/css" href="./resources/animate.css" media="screen" />
 	<script type="text/javascript" src="./resources/jquery.jscroll.min.js"></script>
 	<script type="text/javascript" src="./resources/main.js"></script>
-	<link rel="icon" href="./favicon.ico"  type="image/vnd.microsoft.icon" />
-	<link rel="shortcut icon" href="./favicon.ico" type="image/vnd.microsoft.icon" />
-	<link rel="apple-touch-icon" sizes="120x120" href="./resources/apple-touch-icon-120x120.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href="./resources/apple-touch-icon.png" />
-	<link rel="icon" type="image/png" href="./resources/android-chrome-192x192.png" sizes="192x192" />
-	<link rel="manifest" href="./manifest.json" />
+	<link rel="icon" href="/favicon.ico"  type="image/vnd.microsoft.icon" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+	<link rel="apple-touch-icon" sizes="120x120" href="/resources/img/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="/resources/img/apple-touch-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/resources/img/apple-touch-icon-180x180.png" />
+	<link rel="icon" type="image/png" href="/resources/img/android-chrome-192x192.png" sizes="192x192" />
+	<link rel="manifest" href="/manifest.json" />
 	<title>Eostagram-Viewer</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
 		<div class="description">
 
 			<p>Twitter&nbsp;のハッシュタグ&nbsp;#エオスタグラム&nbsp;をまとめて見られるビューワーです。<br />
-				<a href="https://twitter.com/nenecotte">@nenecotte</a> さんの配布しているテンプレートを用い各ユーザーさんが作られたツイートを表示しています。<br />
+				<a href="https://twitter.com/nenecotte">@nenecotte</a>&nbsp;さんの配布しているテンプレートを用い各ユーザーさんが作られたツイートを表示しています。<br />
 				サイト制作&nbsp;:&nbsp;<a href="https://twitter.com/mayaeh">@mayaeh</a><br />
 				デザイン協力&nbsp;:&nbsp;@nenecotte</p>
 
