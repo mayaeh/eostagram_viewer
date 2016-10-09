@@ -14,7 +14,12 @@
 	<link rel="stylesheet" type="text/css" href="./resources/animate.css" media="screen" />
 	<script type="text/javascript" src="./resources/jquery.jscroll.min.js"></script>
 	<script type="text/javascript" src="./resources/main.js"></script>
-	<link rel="icon" type="image/x-icon" href="./favicon.ico" />
+	<link rel="icon" href="./favicon.ico"  type="image/vnd.microsoft.icon" />
+	<link rel="shortcut icon" href="./favicon.ico" type="image/vnd.microsoft.icon" />
+	<link rel="apple-touch-icon" sizes="120x120" href="./resources/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="./resources/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" href="./resources/android-chrome-192x192.png" sizes="192x192" />
+	<link rel="manifest" href="./manifest.json" />
 	<title>Eostagram-Viewer</title>
 </head>
 <body>
