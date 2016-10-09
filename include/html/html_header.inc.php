@@ -21,6 +21,7 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="/resources/img/apple-touch-icon-180x180.png" />
 	<link rel="icon" type="image/png" href="/resources/img/android-chrome-192x192.png" sizes="192x192" />
 	<link rel="manifest" href="/manifest.json" />
+	<link rel="mask-icon" href="/resources/img/mask-icon_192x192.svg" color="#000000" />
 	<title>Eostagram-Viewer</title>
 </head>
 <body>
