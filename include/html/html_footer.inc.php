@@ -1,6 +1,6 @@
 	<div id="footerContainer">
 
-		<div id="upperContainer"><a href="#headerContainer">▲</a></div>
+		<div id="upperContainer"><a href="#topMenuContainer">▲</a></div>
 
 		<ul>
 			<li>Eostagram templates made by <a href="https://twitter.com/nenecotte">@nenecotte</a></li>
