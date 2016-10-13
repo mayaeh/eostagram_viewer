@@ -34,6 +34,7 @@
 
 			<p>Twitter&nbsp;のハッシュタグ&nbsp;#エオスタグラム&nbsp;をまとめて見られるビューワーです。<br />
 				<a href="https://twitter.com/nenecotte">@nenecotte</a>&nbsp;さんの配布しているテンプレートを用い各ユーザーさんが作られたツイートを表示しています。<br />
+				<a href="http://ff14moo.moo.jp/eostagram_generator.html" target="_blank">エオスタグラム フレームジェネレーター</a>&nbsp;:&nbsp;<a href="https://twitter.com/moomoo_ffxiv">@moomoo_ffxiv</a><br />
 				サイト制作&nbsp;:&nbsp;<a href="https://twitter.com/mayaeh">@mayaeh</a><br />
 				デザイン協力&nbsp;:&nbsp;@nenecotte</p>
 
