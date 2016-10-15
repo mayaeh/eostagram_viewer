@@ -178,7 +178,7 @@ div#upperContainer {
 	margin: 0;
 	position: fixed;
 	text-decoration: none;
-	bottom: 10px;/* 表示位置を変更*/
+	bottom: 50px;/* 表示位置を変更*/
 	color: #fff;
 	right: 10px;
 	overflow: visible;
