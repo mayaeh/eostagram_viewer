@@ -121,6 +121,9 @@ EOM;
 
 			$user_name = 
 				$row ['rt_user_name'];
+
+			$screen_name = 
+				$row ['rt_screen_name'];
 		}
 		else {
 
@@ -129,6 +132,9 @@ EOM;
 
 			$user_name = htmlspecialchars
 				($row ['user_name'], ENT_QUOTES);
+
+			$screen_name = 
+				$row ['screen_name'];
 		}
 
 		$tw_text = preg_replace("/\n/u", "<br />", 
@@ -144,6 +150,9 @@ EOM;
 		$tw_date = date('Y-m-d H:i:s',strtotime
 				($row ['created_at']));
 
+		$user_url = SITE_URL . 
+			'?screen_name=' . $screen_name;
+
 		$tweet_body .= <<<EOM
 
 					</div>
@@ -151,7 +160,7 @@ EOM;
 						<div class="profile_image_url">
 							<img src="$profile_image_url" />
 						</div>
-						<p class="user_name">$user_name</p>
+						<p class="user_name"><a href="$user_url">$user_name</a></p>
 						<p class="tw_text">$tw_text</p>
 						<span class="created_at">$tw_date</span>
 
@@ -165,13 +174,19 @@ EOM;
 			$rt_user_name = htmlspecialchars
 				($row ['user_name'], ENT_QUOTES);
 
+			$rt_screen_name = htmlspecialchars 
+				($row ['screen_name'], ENT_QUOTES);
+
+			$rt_user_url = SITE_URL . 
+				'?screen_name=' . $rt_screen_name;
+
 			$tweet_body .= <<<EOM
 						<div class="rt_user">
 							<div class="rt_profile_image_url">
 								<img src="$rt_profile_image_url" />
 							</div>
 							<p class="rt_user_name">
-								<span>$rt_user_name</span>
+								<span><a href="$rt_user_url">$rt_user_name</a></span>
 								<span>ReTweeted</span>
 							</p>
 						</div>
