@@ -35,7 +35,7 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 	if (isset($screen_name)) {
 
 		$query_where_array[] = 
-			"screen_name = " . $screen_name . " ";
+			"screen_name = '" . $screen_name . "' ";
 	}
 
 	if (isset($exclude_retweet)) {
@@ -60,14 +60,14 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 
 	$db_res = $db -> query($query);
 
-	$res_array = array();
-
 	$tweet_body = <<<EOM
 		<div id="contentContainer">
 
 			<div class="tweetContainer">
 
 EOM;
+
+	$last_status_id = null;
 
 	while ($row = $db_res -> 
 		fetchArray(SQLITE3_ASSOC)) {
@@ -78,10 +78,11 @@ EOM;
 		$media_url_1 = 
 		$profile_image_url = 
 		$user_name = 
+		$db_screen_name = 
 		$tw_text = 
 		$rt_profile_image_url = 
 		$rt_user_name = 
-		$last_status_id = null;
+		$rt_screen_name = null;
 
 		$last_status_id = $row ['status_id'];
 
@@ -121,6 +122,9 @@ EOM;
 
 			$user_name = 
 				$row ['rt_user_name'];
+
+			$db_screen_name = htmlspecialchars 
+				($row ['rt_screen_name'], ENT_QUOTES);
 		}
 		else {
 
@@ -129,6 +133,9 @@ EOM;
 
 			$user_name = htmlspecialchars
 				($row ['user_name'], ENT_QUOTES);
+
+			$db_screen_name = htmlspecialchars 
+				($row ['screen_name'], ENT_QUOTES);
 		}
 
 		$tw_text = preg_replace("/\n/u", "<br />", 
@@ -144,6 +151,9 @@ EOM;
 		$tw_date = date('Y-m-d H:i:s',strtotime
 				($row ['created_at']));
 
+		$user_url = SITE_URL . 
+			'?screen_name=' . $db_screen_name;
+
 		$tweet_body .= <<<EOM
 
 					</div>
@@ -151,7 +161,7 @@ EOM;
 						<div class="profile_image_url">
 							<img src="$profile_image_url" />
 						</div>
-						<p class="user_name">$user_name</p>
+						<p class="user_name"><a href="$user_url">$user_name</a></p>
 						<p class="tw_text">$tw_text</p>
 						<span class="created_at">$tw_date</span>
 
@@ -165,13 +175,19 @@ EOM;
 			$rt_user_name = htmlspecialchars
 				($row ['user_name'], ENT_QUOTES);
 
+			$rt_screen_name = htmlspecialchars 
+				($row ['screen_name'], ENT_QUOTES);
+
+			$rt_user_url = SITE_URL . 
+				'?screen_name=' . $rt_screen_name;
+
 			$tweet_body .= <<<EOM
 						<div class="rt_user">
 							<div class="rt_profile_image_url">
 								<img src="$rt_profile_image_url" />
 							</div>
 							<p class="rt_user_name">
-								<span>$rt_user_name</span>
+								<span><a href="$rt_user_url">$rt_user_name</a></span>
 								<span>ReTweeted</span>
 							</p>
 						</div>
@@ -188,6 +204,12 @@ EOM;
 
 	}
 
+	// これ以上取得できず最後のページだった場合
+	if(is_null($last_status_id)) {
+
+		return null;
+	}
+
 	$next_url = SITE_URL . 
 		'api/home_timeline_html?';
 
@@ -201,6 +223,11 @@ EOM;
 	if (isset($last_status_id)) {
 
 		$url_arg_array[] = 'max_id=' . $last_status_id;
+	}
+
+	if (isset($screen_name)) {
+
+		$url_arg_array[] = 'screen_name=' . $screen_name;
 	}
 
 	if (isset($exclude_retweet)) {
@@ -229,9 +256,6 @@ EOM;
 
 	unset($db_res);
 	$db -> close();
-
-// for debug
-//return $res_array;
 
 	return $tweet_body;
 

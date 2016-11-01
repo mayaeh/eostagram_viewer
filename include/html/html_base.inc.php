@@ -19,8 +19,15 @@
 		}
 	}
 
+	if(isset($screen_name)) {
+
+		$api_param .= '&screen_name='. $screen_name;
+	}
+
 // for debug
 //var_dump($api_url);
+//var_dump($api_param);
+//var_dump($api_url.$api_param);
 
 	$tweet_body = file_get_contents($api_url . $api_param);
 
