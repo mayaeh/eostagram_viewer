@@ -120,8 +120,8 @@ EOM;
 			$user_name = 
 				$row ['rt_user_name'];
 
-			$screen_name = 
-				$row ['rt_screen_name'];
+			$db_screen_name = htmlspecialchars 
+				($row ['rt_screen_name'], ENT_QUOTES);
 		}
 		else {
 
@@ -131,8 +131,8 @@ EOM;
 			$user_name = htmlspecialchars
 				($row ['user_name'], ENT_QUOTES);
 
-			$screen_name = 
-				$row ['screen_name'];
+			$db_screen_name = htmlspecialchars 
+				($row ['screen_name'], ENT_QUOTES);
 		}
 
 		$tw_text = preg_replace("/\n/u", "<br />", 
@@ -149,7 +149,7 @@ EOM;
 				($row ['created_at']));
 
 		$user_url = SITE_URL . 
-			'?screen_name=' . $screen_name;
+			'?screen_name=' . $db_screen_name;
 
 		$tweet_body .= <<<EOM
 
