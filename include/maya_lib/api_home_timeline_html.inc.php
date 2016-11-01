@@ -67,6 +67,8 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 
 EOM;
 
+	$last_status_id = null;
+
 	while ($row = $db_res -> 
 		fetchArray(SQLITE3_ASSOC)) {
 
@@ -76,10 +78,11 @@ EOM;
 		$media_url_1 = 
 		$profile_image_url = 
 		$user_name = 
+		$db_screen_name = 
 		$tw_text = 
 		$rt_profile_image_url = 
 		$rt_user_name = 
-		$last_status_id = null;
+		$rt_screen_name = null;
 
 		$last_status_id = $row ['status_id'];
 
@@ -199,6 +202,12 @@ EOM;
 
 EOM;
 
+	}
+
+	// これ以上取得できず最後のページだった場合
+	if(is_null($last_status_id)) {
+
+		return null;
 	}
 
 	$next_url = SITE_URL . 
