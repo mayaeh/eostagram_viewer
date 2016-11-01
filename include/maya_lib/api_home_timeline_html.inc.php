@@ -216,6 +216,11 @@ EOM;
 		$url_arg_array[] = 'max_id=' . $last_status_id;
 	}
 
+	if (isset($screen_name)) {
+
+		$url_arg_array[] = 'screen_name=' . $screen_name;
+	}
+
 	if (isset($exclude_retweet)) {
 
 		$url_arg_array[] = 'exclude_retweet=yes';
