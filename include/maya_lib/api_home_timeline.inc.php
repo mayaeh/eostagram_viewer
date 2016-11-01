@@ -35,7 +35,7 @@ function api_home_timeline($count = null, $since_id = null, $max_id = null, $scr
 	if (isset($screen_name)) {
 
 		$query_where_array[] = 
-			"screen_name = " . $screen_name . " ";
+			"screen_name = '" . $screen_name . "' ";
 	}
 
 	if (isset($exclude_retweet)) {
