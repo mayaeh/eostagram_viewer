@@ -60,8 +60,6 @@ function api_home_timeline_html($count = null, $since_id = null, $max_id = null,
 
 	$db_res = $db -> query($query);
 
-	$res_array = array();
-
 	$tweet_body = <<<EOM
 		<div id="contentContainer">
 
@@ -244,9 +242,6 @@ EOM;
 
 	unset($db_res);
 	$db -> close();
-
-// for debug
-//return $res_array;
 
 	return $tweet_body;
 
