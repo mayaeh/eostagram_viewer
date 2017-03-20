@@ -34,7 +34,7 @@ if (isset($_GET)) {
 		}
 		if(array_get_value($_GET, 'screen_name', "")) {
 
-			$trim_user = htmlspecialchars 
+			$screen_name = htmlspecialchars 
 				($_GET['screen_name'], ENT_QUOTES);
 		}
 		if(array_get_value($_GET, 'exclude_retweet', "")) {

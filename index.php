@@ -10,6 +10,19 @@ if(isset($_COOKIE)) {
 	}
 }
 
+if (isset($_GET)) {
+
+//	var_dump($_GET);
+ 
+	$screen_name = null;
+
+	if(array_get_value($_GET, 'screen_name', "")) {
+
+		$screen_name = htmlspecialchars
+			($_GET['screen_name'], ENT_QUOTES);
+	}
+}
+
 require_once (HTML_HEADER_FILE);
 
 require_once (HTML_TOP_MENU_FILE);
